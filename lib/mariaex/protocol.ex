@@ -185,7 +185,7 @@ defmodule Mariaex.Protocol do
         {:error, error}
     end
   end
-  defp handle_handshake(packet(seqnum: seqnum, 
+  defp handle_handshake(packet(seqnum: seqnum,
                                msg: handshake(capability_flags_1: flag1,
                                               capability_flags_2: flag2,
                                               plugin: plugin) = handshake) = _packet,  %{opts: opts}, s) do
@@ -1139,7 +1139,7 @@ defmodule Mariaex.Protocol do
       %Query{} ->
         {:ok, nil, s} = handle_close(query, [], s)
         {:error, error, clean_state(s)}
-      nil ->
+      _ ->
         {:error, error, clean_state(s)}
     end
   end
